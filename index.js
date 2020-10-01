@@ -8,7 +8,29 @@
 
 (function(window, _) {
   window.gamz = window.gamz || {
-    numz: {/* other code */},
+    numz: {
+         degreesToRadian(degrees){
+             return degrees * Math.PI / 180;
+         },
+         raianToDegrees(radians){
+             return radians * 180 / Math.PI;
+         },
+
+    getAnglesDegrees(pointA,pointB){
+        const
+            distanceX = pointB.x - pointA.x,
+            distanceY = pointB.y - pointA.y,
+            Radians =  Math.atan2(distanceY,distanceX),
+            degrees = radians * 180 / Math.PI;
+            return degrees;
+    },
+        
+        getDistance : function(pointA, pointB) {
+    const
+      distanceX = pointB.x - pointA.x,
+      distanceY = pointB.y - pointA.y,
+      distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+    return distance;/* other code */},},
     phyz: {
       /**
        * Returns an Object with basic properties utilized in a 
@@ -57,6 +79,7 @@
           handleCollision(impact, body) {
             // template method //
           },
+
 
           /**
            * Can be overridden in the concrete body to provide a custom update()
