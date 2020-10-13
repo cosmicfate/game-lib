@@ -24,12 +24,27 @@
             degrees = radians * 180 / Math.PI;
             return degrees;
     },
+
+    updateVelocity(body, forceOnX, forceOnY) {
+         const
+            angle = body.rotation * Math.PI / 180,
+            accelerationOnX  = Math.cos(angle) * forceOnX,
+            accelerationOnY = Math.sin(angle) * forceOnY;
+            body.velocityX += accelerationOnX;
+            body.velocityY += accelerationOnY;
+    },
+
+    updatePosition(body) {
+            body.x += body.velocityX;
+            body.y += body.velocityY;
+            body.rotation += body.rotationalVelocity;
+    },
         
         getDistance : function(pointA, pointB) {
     const
-      distanceX = pointB.x - pointA.x,
-      distanceY = pointB.y - pointA.y,
-      distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+            distanceX = pointB.x - pointA.x,
+            distanceY = pointB.y - pointA.y,
+            distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
     return distance;/* other code */},},
     phyz: {
       /**
