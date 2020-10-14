@@ -55,20 +55,7 @@
        * @return {Object} The body.
        */
       
-      updateVelocity(body, forceOnX, forceOnY) {
-         const
-            angle = body.rotation * Math.PI / 180,
-            accelerationOnX  = Math.cos(angle) * forceOnX,
-            accelerationOnY = Math.sin(angle) * forceOnY;
-            body.velocityX += accelerationOnX;
-            body.velocityY += accelerationOnY;
-    },
 
-    updatePosition(body) {
-            body.x += body.velocityX;
-            body.y += body.velocityY;
-            body.rotation += body.rotationalVelocity;
-    },
       
     
        makeBody: function(type, {
@@ -95,7 +82,22 @@
            */
           handleCollision(impact, body) {
             // template method //
-          },
+          },       
+          
+          updateVelocity(body, forceOnX, forceOnY) {
+         const
+            angle = body.rotation * Math.PI / 180,
+            accelerationOnX  = Math.cos(angle) * forceOnX,
+            accelerationOnY = Math.sin(angle) * forceOnY;
+            body.velocityX += accelerationOnX;
+            body.velocityY += accelerationOnY;
+    },
+
+    updatePosition(body) {
+            body.x += body.velocityX;
+            body.y += body.velocityY;
+            body.rotation += body.rotationalVelocity;
+    },
 
 
           /**
