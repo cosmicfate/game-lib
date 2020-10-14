@@ -84,7 +84,20 @@
             // template method //
           },       
           
-          updateVelocity(body, forceOnX, forceOnY) {
+
+
+
+          /**
+           * Can be overridden in the concrete body to provide a custom update()
+           * method.
+           */
+          update(event) {
+            // template method //
+          }
+        };
+                 
+      },
+       updateVelocity(body, forceOnX, forceOnY) {
          const
             angle = body.rotation * Math.PI / 180,
             accelerationOnX  = Math.cos(angle) * forceOnX,
@@ -98,17 +111,6 @@
             body.y += body.velocityY;
             body.rotation += body.rotationalVelocity;
     },
-
-
-          /**
-           * Can be overridden in the concrete body to provide a custom update()
-           * method.
-           */
-          update(event) {
-            // template method //
-          }
-        };
-      },
     },
   };
 }(window, window._));
