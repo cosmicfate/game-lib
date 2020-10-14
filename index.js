@@ -1,5 +1,5 @@
 (function(window, _) {
-  window.myLibraryName = window.myLibraryName || {
+  window.gamz = window.gamz || {
     numz: {},
     phyz: {},
   };
